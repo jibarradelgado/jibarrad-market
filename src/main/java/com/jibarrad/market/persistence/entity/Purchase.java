@@ -3,6 +3,7 @@ package com.jibarrad.market.persistence.entity;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "compras")
@@ -27,6 +28,13 @@ public class Purchase {
 
     @Column(name = "estado")
     private String state;
+
+    @ManyToOne
+    @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
+    private Client client;
+
+    @OneToMany(mappedBy = "product")
+    private List<PurchaseProduct> products;
 
     public Integer getIdPurchase() {
         return idPurchase;
@@ -74,5 +82,21 @@ public class Purchase {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public List<PurchaseProduct> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<PurchaseProduct> products) {
+        this.products = products;
     }
 }

@@ -28,6 +28,10 @@ public class Product {
     @Column(name = "estado")
     private Boolean state;
 
+    @ManyToOne
+    @JoinColumn(name = "id_categoria", insertable = false, updatable = false)
+    private Category category;
+
     public Integer getIdProduct() {
         return idProduct;
     }
@@ -82,5 +86,13 @@ public class Product {
 
     public void setState(Boolean state) {
         this.state = state;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

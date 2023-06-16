@@ -2,6 +2,8 @@ package com.jibarrad.market.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "categorias")
 public class Category {
@@ -16,6 +18,9 @@ public class Category {
 
     @Column(name = "estado")
     private Boolean state;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
     public Integer getIdCategory() {
         return idCategory;
@@ -39,5 +44,13 @@ public class Category {
 
     public void setState(Boolean state) {
         this.state = state;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

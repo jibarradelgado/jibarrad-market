@@ -1,9 +1,6 @@
 package com.jibarrad.market.persistence.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "compras_productos")
@@ -19,6 +16,14 @@ public class PurchaseProduct {
 
     @Column(name = "estado")
     private Boolean state;
+
+    @ManyToOne
+    @JoinColumn(name = "id_compra", insertable = false, updatable = false)
+    private Purchase purchase;
+
+    @ManyToOne
+    @JoinColumn(name = "id_producto", insertable = false, updatable = false)
+    private Product product;
 
     public PurchaseProductPK getId() {
         return id;
@@ -50,5 +55,21 @@ public class PurchaseProduct {
 
     public void setState(Boolean state) {
         this.state = state;
+    }
+
+    public Purchase getPurchase() {
+        return purchase;
+    }
+
+    public void setPurchase(Purchase purchase) {
+        this.purchase = purchase;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }
