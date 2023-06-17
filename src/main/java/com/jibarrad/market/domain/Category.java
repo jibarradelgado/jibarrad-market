@@ -1,6 +1,6 @@
 package com.jibarrad.market.domain;
 
-public class CategoryDomain {
+public class Category {
     private int categoryId;
     private String category;
     private boolean active;

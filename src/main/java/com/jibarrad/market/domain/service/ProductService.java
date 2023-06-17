@@ -1,6 +1,6 @@
 package com.jibarrad.market.domain.service;
 
-import com.jibarrad.market.domain.ProductDomain;
+import com.jibarrad.market.domain.Product;
 import com.jibarrad.market.domain.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,19 +13,19 @@ public class ProductService {
     @Autowired
     private ProductRepository productRepository;
 
-    public List<ProductDomain> getAll(){
+    public List<Product> getAll(){
         return productRepository.getAll();
     }
 
-    public Optional<ProductDomain> getProduct(int productId) {
+    public Optional<Product> getProduct(int productId) {
         return productRepository.getProduct(productId);
     }
 
-    public Optional<List<ProductDomain>> getByCategory(int categoryId){
+    public Optional<List<Product>> getByCategory(int categoryId){
         return productRepository.getByCategory(categoryId);
     }
 
-    public ProductDomain save(ProductDomain product) {
+    public Product save(Product product) {
         return productRepository.save(product);
     }
 

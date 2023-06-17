@@ -1,13 +1,13 @@
 package com.jibarrad.market.domain;
 
-public class ProductDomain {
+public class Product {
     private int productId;
     private String name;
     private int categoryId;
     private double price;
     private int stock;
     private boolean active;
-    private CategoryDomain categoryDomain;
+    private Category category;
 
     public int getProductId() {
         return productId;
@@ -57,11 +57,11 @@ public class ProductDomain {
         this.active = active;
     }
 
-    public CategoryDomain getCategory() {
-        return categoryDomain;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategory(CategoryDomain categoryDomain) {
-        this.categoryDomain = categoryDomain;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

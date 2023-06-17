@@ -1,6 +1,7 @@
 package com.jibarrad.market.persistence.mapper;
 
-import com.jibarrad.market.domain.ProductDomain;
+import com.jibarrad.market.domain.Product;
+import com.jibarrad.market.persistence.entity.ProductEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -19,10 +20,10 @@ public interface ProductMapper {
             @Mapping(source = "state", target = "active"),
             @Mapping(source = "category", target = "category"),
     })
-    ProductDomain toProduct(com.jibarrad.market.persistence.entity.Product product);
-    List<ProductDomain> toProducts(List<com.jibarrad.market.persistence.entity.Product> products);
+    Product toProduct(ProductEntity productEntity);
+    List<Product> toProducts(List<ProductEntity> productEntities);
 
     @InheritInverseConfiguration
     @Mapping(target = "codigoBarras", ignore = true)
-    com.jibarrad.market.persistence.entity.Product toProduct(ProductDomain productDomain);
+    ProductEntity toProduct(Product product);
 }

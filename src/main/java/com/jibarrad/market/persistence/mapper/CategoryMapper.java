@@ -1,6 +1,7 @@
 package com.jibarrad.market.persistence.mapper;
 
-import com.jibarrad.market.domain.CategoryDomain;
+import com.jibarrad.market.domain.Category;
+import com.jibarrad.market.persistence.entity.CategoryEntity;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -13,9 +14,9 @@ public interface CategoryMapper {
             @Mapping(source = "description", target = "category"),
             @Mapping(source = "state", target = "active"),
     })
-    CategoryDomain toCategory(com.jibarrad.market.persistence.entity.Category category);
+    Category toCategory(CategoryEntity categoryEntity);
 
     @InheritInverseConfiguration
     @Mapping(target = "products", ignore = true)
-    com.jibarrad.market.persistence.entity.Category toCategory(CategoryDomain categoryDomain);
+    CategoryEntity toCategory(Category category);
 }
