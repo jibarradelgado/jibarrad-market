@@ -33,7 +33,7 @@ public class Purchase {
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private Client client;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "purchase")
     private List<PurchaseProduct> products;
 
     public Integer getIdPurchase() {
@@ -99,4 +99,6 @@ public class Purchase {
     public void setProducts(List<PurchaseProduct> products) {
         this.products = products;
     }
+
+
 }
