@@ -24,7 +24,7 @@ public class PurchaseEntity {
     private String paymentMethod;
 
     @Column(name = "comentario")
-    private String coment;
+    private String comment;
 
     @Column(name = "estado")
     private String state;
@@ -33,7 +33,7 @@ public class PurchaseEntity {
     @JoinColumn(name = "id_cliente", insertable = false, updatable = false)
     private ClientEntity clientEntity;
 
-    @OneToMany(mappedBy = "purchaseEntity")
+    @OneToMany(mappedBy = "purchaseEntity", cascade = {CascadeType.ALL})
     private List<PurchaseProductEntity> productEntities;
 
     public Integer getIdPurchase() {
@@ -68,12 +68,12 @@ public class PurchaseEntity {
         this.paymentMethod = paymentMethod;
     }
 
-    public String getComent() {
-        return coment;
+    public String getComment() {
+        return comment;
     }
 
-    public void setComent(String coment) {
-        this.coment = coment;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public String getState() {
@@ -84,21 +84,19 @@ public class PurchaseEntity {
         this.state = state;
     }
 
-    public ClientEntity getClient() {
+    public ClientEntity getClientEntity() {
         return clientEntity;
     }
 
-    public void setClient(ClientEntity clientEntity) {
+    public void setClientEntity(ClientEntity clientEntity) {
         this.clientEntity = clientEntity;
     }
 
-    public List<PurchaseProductEntity> getProducts() {
+    public List<PurchaseProductEntity> getProductEntities() {
         return productEntities;
     }
 
-    public void setProducts(List<PurchaseProductEntity> productEntities) {
+    public void setProductEntities(List<PurchaseProductEntity> productEntities) {
         this.productEntities = productEntities;
     }
-
-
 }

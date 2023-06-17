@@ -18,6 +18,7 @@ public class PurchaseProductEntity {
     private Boolean state;
 
     @ManyToOne
+    @MapsId("idPurchase")
     @JoinColumn(name = "id_compra", insertable = false, updatable = false)
     private PurchaseEntity purchaseEntity;
 
@@ -57,19 +58,19 @@ public class PurchaseProductEntity {
         this.state = state;
     }
 
-    public PurchaseEntity getPurchase() {
+    public PurchaseEntity getPurchaseEntity() {
         return purchaseEntity;
     }
 
-    public void setPurchase(PurchaseEntity purchaseEntity) {
+    public void setPurchaseEntity(PurchaseEntity purchaseEntity) {
         this.purchaseEntity = purchaseEntity;
     }
 
-    public ProductEntity getProduct() {
+    public ProductEntity getProductEntity() {
         return productEntity;
     }
 
-    public void setProduct(ProductEntity productEntity) {
+    public void setProductEntity(ProductEntity productEntity) {
         this.productEntity = productEntity;
     }
 }
